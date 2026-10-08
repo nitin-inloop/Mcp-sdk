@@ -14,17 +14,17 @@ With MCP Chat, you can easily chat with Claude, retrieve context from local docu
 The repository is structured to separate the frontend CLI, the language model orchestration, and the backend MCP server handling local resources.
 
 ```mermaid
-graph TD
-    User([User]) <-->|Chat, @docs & /commands| CLI[CliApp / CliChat]
+flowchart TD
+    User([User]) <-->|Chat and Commands| CLI[CliApp]
     
     subgraph Core System
-        CLI <-->|Prompts & History| Claude[Anthropic Claude API]
-        CLI <-->|MCP Protocol (stdio)| MCPClient[MCP Client]
+        CLI <-->|Prompts| Claude[Claude API]
+        CLI <-->|MCP Protocol| MCPClient[MCP Client]
     end
     
     subgraph MCP Backend
-        MCPClient <-->|JSON-RPC over Stdio| MCPServer[FastMCP Server]
-        MCPServer <-->|Reads/Edits| Docs[(Virtual Document Store)]
+        MCPClient <-->|JSON-RPC| MCPServer[FastMCP Server]
+        MCPServer <-->|Reads/Edits| Docs[(Document Store)]
     end
     
     classDef main fill:#2b313e,stroke:#4a5568,stroke-width:2px,color:#fff;
