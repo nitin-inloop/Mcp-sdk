@@ -26,16 +26,6 @@ flowchart TD
         MCPClient <-->|JSON-RPC| MCPServer[FastMCP Server]
         MCPServer <-->|Reads/Edits| Docs[(Document Store)]
     end
-    
-    classDef main fill:#2b313e,stroke:#4a5568,stroke-width:2px,color:#fff;
-    classDef api fill:#0f3460,stroke:#1a1a2e,stroke-width:2px,color:#fff;
-    classDef storage fill:#16213e,stroke:#0f3460,stroke-width:2px,color:#fff;
-    
-    CLI class:main
-    MCPClient class:main
-    MCPServer class:main
-    Claude class:api
-    Docs class:storage
 ```
 
 ### 🔄 Interaction Flow
